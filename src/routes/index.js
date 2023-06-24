@@ -5,6 +5,13 @@ const {postRecommendation, putRecommendation, deleteRecommendation, getRecommend
 const {postService, putService, deleteService, getService} = require('./controllers/serviceCRUD')
 const {postTestimony, putTestimony, deleteTestimony, getTestimony} = require('./controllers/testimonyCRUD')
 const {postTips, putTips, deleteTips, getTips} = require('./controllers/tipsCRUD')
+const {postUser, putUser,deleteUser, getUser} = require('./controllers/userCRUD')
+
+//rutas usuario
+router.post('/postUser', postUser)
+router.put('/putUser', putUser)
+router.delete('/deleteUser', deleteUser)
+router.get('/getUsuarios', getUser)
 
 //rutas de promocion
 router.post('/postPromotion', postPromotion)
@@ -35,6 +42,8 @@ router.post('/postTips', postTips)
 router.put('/putTips/:id', putTips);
 router.delete('/deleteTips/:id', deleteTips);
 router.get('/getTips', getTips);
+
+
 
 
 module.exports = router;
