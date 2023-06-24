@@ -5,7 +5,9 @@ const {postRecommendation, putRecommendation, deleteRecommendation, getRecommend
 const {postService, putService, deleteService, getService} = require('./controllers/serviceCRUD')
 const {postTestimony, putTestimony, deleteTestimony, getTestimony} = require('./controllers/testimonyCRUD')
 const {postTips, putTips, deleteTips, getTips} = require('./controllers/tipsCRUD')
-const {postUser, putUser,deleteUser, getUser} = require('./controllers/userCRUD')
+const {postUser, putUser,deleteUser, getUser} = require('./controllers/userCRUD');
+const { registerUser, loginUser } = require('./controllers/login');
+const { tokenValidation } = require('./controllers/tokenValidator');
 
 //rutas usuario
 router.post('/postUser', postUser)
@@ -13,34 +15,38 @@ router.put('/putUser', putUser)
 router.delete('/deleteUser', deleteUser)
 router.get('/getUsuarios', getUser)
 
+// rutas de registro e inicio de sesion
+router.post('/createUser', registerUser)
+router.post('/loginUser', loginUser)
+
 //rutas de promocion
-router.post('/postPromotion', postPromotion)
-router.put('/putPromotion/:id', putPromotion);
-router.delete('/deletePromotion/:id', deletePromotion);
+router.post('/postPromotion', tokenValidation, postPromotion)
+router.put('/putPromotion/:id',tokenValidation, putPromotion);
+router.delete('/deletePromotion/:id',tokenValidation, deletePromotion);
 router.get('/getPromotion', getPromotion);
 
 //rutas de recomendaciones
-router.post('/postRecommendation', postRecommendation)
-router.put('/putRecommendation/:id', putRecommendation);
-router.delete('/deleteRecommendation/:id', deleteRecommendation);
+router.post('/postRecommendation', tokenValidation, postRecommendation)
+router.put('/putRecommendation/:id', tokenValidation,  putRecommendation);
+router.delete('/deleteRecommendation/:id', tokenValidation, deleteRecommendation);
 router.get('/getRecommendation', getRecommendation);
 
 //rutas de servicios
-router.post('/postService', postService)
-router.put('/putService/:id', putService);
-router.delete('/deleteService/:id', deleteService);
+router.post('/postService', tokenValidation, postService)
+router.put('/putService/:id', tokenValidation, putService);
+router.delete('/deleteService/:id', tokenValidation, deleteService);
 router.get('/getService', getService);
 
 //rutas de testimonios
-router.post('/postTestimony', postTestimony)
-router.put('/putTestimony/:id', putTestimony);
-router.delete('/deleteTestimony/:id', deleteTestimony);
+router.post('/postTestimony', tokenValidation, postTestimony)
+router.put('/putTestimony/:id', tokenValidation, putTestimony);
+router.delete('/deleteTestimony/:id', tokenValidation, deleteTestimony);
 router.get('/getTestimony', getTestimony);
 
 //rutas de tips
-router.post('/postTips', postTips)
-router.put('/putTips/:id', putTips);
-router.delete('/deleteTips/:id', deleteTips);
+router.post('/postTips', tokenValidation, postTips)
+router.put('/putTips/:id', tokenValidation, putTips);
+router.delete('/deleteTips/:id', tokenValidation, deleteTips);
 router.get('/getTips', getTips);
 
 

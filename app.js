@@ -1,8 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
-const mongoose  = require('./dbConnection');
-const routes = require('./routes/index');
+const mongoose  = require('./src/dbConnection');
+const routes = require('./src/routes/index');
 
 const app = express();
 
