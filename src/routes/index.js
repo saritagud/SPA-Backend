@@ -6,9 +6,17 @@ const {postService, putService, deleteService, getService} = require('./controll
 const {postTestimony, putTestimony, deleteTestimony, getTestimony} = require('./controllers/testimonyCRUD')
 const {postTips, putTips, deleteTips, getTips} = require('./controllers/tipsCRUD')
 const {postUser, putUser,deleteUser, getUser} = require('./controllers/userCRUD');
+const {postReservation, getReservation} = require('./controllers/reservation');
 const { registerUser, loginUser } = require('./controllers/login');
 const { tokenValidation } = require('./controllers/tokenValidator');
+const {signup, getbill} = require('./controllers/sendEmail')
 
+
+router.post('/reservation', postReservation)
+router.get('/getReservation', getReservation)
+
+router.post('/getbill', getbill)
+router.post('/email', signup)
 //rutas usuario
 router.post('/postUser', postUser)
 router.put('/putUser', putUser)

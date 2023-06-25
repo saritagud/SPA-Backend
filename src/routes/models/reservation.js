@@ -5,8 +5,9 @@ const reservationSchema = new mongoose.Schema({
     name: String,
     email: String,
     service: String,
+    price: Number,
     hour: String,
-    phone: number,
+    phone: Number,
   });
 
 
