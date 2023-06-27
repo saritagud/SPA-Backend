@@ -10,9 +10,12 @@ const {postReservation, getReservation} = require('./controllers/reservation');
 const { registerUser, loginUser } = require('./controllers/login');
 const { tokenValidation } = require('./controllers/tokenValidator');
 const {signup, getbill} = require('./controllers/sendEmail')
+const {postSchedule, getSchedule} = require('./controllers/scheduleCRUD')
 
+router.post('/postSchedule', postSchedule)
+router.get('/getSchedule', getSchedule)
 
-router.post('/reservation', postReservation)
+router.post('/postReservation', postReservation)
 router.get('/getReservation', getReservation)
 
 router.post('/getbill', getbill)
@@ -24,7 +27,7 @@ router.delete('/deleteUser', deleteUser)
 router.get('/getUsuarios', getUser)
 
 // rutas de registro e inicio de sesion
-router.post('/createUser', registerUser)
+router.post('/registerUser', registerUser)
 router.post('/loginUser', loginUser)
 
 //rutas de promocion
@@ -40,15 +43,15 @@ router.delete('/deleteRecommendation/:id', tokenValidation, deleteRecommendation
 router.get('/getRecommendation', getRecommendation);
 
 //rutas de servicios
-router.post('/postService', tokenValidation, postService)
+router.post('/postService',tokenValidation, postService)
 router.put('/putService/:id', tokenValidation, putService);
 router.delete('/deleteService/:id', tokenValidation, deleteService);
 router.get('/getService', getService);
 
 //rutas de testimonios
-router.post('/postTestimony', tokenValidation, postTestimony)
-router.put('/putTestimony/:id', tokenValidation, putTestimony);
-router.delete('/deleteTestimony/:id', tokenValidation, deleteTestimony);
+router.post('/postTestimony',tokenValidation,  postTestimony)
+router.put('/putTestimony/:id',tokenValidation,  putTestimony);
+router.delete('/deleteTestimony/:id',tokenValidation, deleteTestimony);
 router.get('/getTestimony', getTestimony);
 
 //rutas de tips

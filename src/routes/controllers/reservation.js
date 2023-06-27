@@ -7,7 +7,13 @@ const { Reservation } = require("../models/reservation");
 //agregar
 const postReservation = (req, res) => {
   const reservationData = req.body;
- 
+
+  Reservation.findOne({schedule: reservationData.schedule})
+  .then((existingReservation) => {
+    if (existingReservation) {
+      return res.status(400).json({ error: "Este horario ya ha sido reservado" });
+    }
+  })
   console.log(reservationData);
 
   let config = {

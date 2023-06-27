@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 
 const recommendationSchema = new mongoose.Schema({
+    name: String,
     recommendation: String,
   });
 

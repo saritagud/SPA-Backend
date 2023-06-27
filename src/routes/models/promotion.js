@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const promotionSchema = new mongoose.Schema({
     discount: Number,
     service: String,
+    image: String
   });
 
 
