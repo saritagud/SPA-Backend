@@ -49,9 +49,9 @@ router.delete('/deleteService/:id', tokenValidation, deleteService);
 router.get('/getService', getService);
 
 //rutas de testimonios
-router.post('/postTestimony',tokenValidation,  postTestimony)
-router.put('/putTestimony/:id',tokenValidation,  putTestimony);
-router.delete('/deleteTestimony/:id',tokenValidation, deleteTestimony);
+router.post('/postTestimony', postTestimony)
+router.put('/putTestimony/:id', putTestimony);
+router.delete('/deleteTestimony/:id',deleteTestimony);
 router.get('/getTestimony', getTestimony);
 
 //rutas de tips
